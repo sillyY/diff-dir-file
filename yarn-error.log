@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add -s readDir
+  /usr/local/bin/node /usr/local/bin/yarn run start
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/3.6/bin
@@ -14,30 +14,28 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/readDir: Not found
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66058:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:129541:22)
-      at Request.emit (events.js:198:13)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:130513:10)
-      at Request.emit (events.js:198:13)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:130435:12)
-      at Object.onceWrapper (events.js:286:20)
-      at IncomingMessage.emit (events.js:203:15)
-      at endReadableNT (_stream_readable.js:1129:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  SyntaxError: /Users/sillyy/学习/libs/file-compare/package.json: Unexpected token } in JSON at position 117
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:304:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:315:13
 
 npm manifest: 
   {
     "scripts": {
-      "babel": "babel src --watch --out-dir app"
+      "babel": "babel src  --out-dir app",
+      "start": "yarn run babel && node app/test/index.js",
     },
     "devDependencies": {
       "babel-plugin-transform-runtime": "^6.23.0",
       "babel-preset-env": "^1.7.0"
     },
     "dependencies": {
+      "babel-preset-stage-2": "^6.24.1",
       "consola": "^2.9.0",
-      "linebyline": "^1.3.0"
+      "linebyline": "^1.3.0",
+      "readdir": "^0.1.0"
     }
   }
 
@@ -633,6 +631,18 @@ Lockfile:
     version "0.1.8"
     resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
     integrity sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==
+  
+  q@~1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/q/-/q-1.0.1.tgz#11872aeedee89268110b10a718448ffb10112a14"
+    integrity sha1-EYcq7t7okmgRCxCnGESP+xARKhQ=
+  
+  readdir@^0.1.0:
+    version "0.1.0"
+    resolved "https://registry.yarnpkg.com/readdir/-/readdir-0.1.0.tgz#1b587f2c629fc93f8c86d5afd42d172293401a12"
+    integrity sha512-6ooimObbcBEgROguDY083rVL7EKMWWRYEujAld28oinI3mflpfXJVBGtFNjtRnpYFjuD2RGayOmQJnVEGPyXVQ==
+    dependencies:
+      q "~1.0.1"
   
   regenerate@^1.2.1:
     version "1.4.0"

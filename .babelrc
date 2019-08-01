@@ -1,12 +1,14 @@
 {
-    "plugins": [
-        ["transform-runtime",
-        {
-            "helpers": false,
-            "polyfill": false,
-            "regenerator": true,
-            "moduleName": "babel-runtime"
-        }]
-    ],
-    "presets": ["env"]
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ]
+  ],
+  "presets": ["env", "stage-2"]
 }

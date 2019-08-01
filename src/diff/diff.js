@@ -1,15 +1,11 @@
-var hasOwnProperty = Object.prototype.hasOwnProperty
-function hasOwn(obj, key) {
-  return hasOwnProperty.call(obj, key)
-}
-
 function Diff() {
   this.diffenerce = {}
   this.diffs = {}
 }
 Diff.prototype.inject = function(name, line, lineCount) {
-  if (name in this.diffs && lineCount in this.diffs[name])
+  if (name in this.diffs && lineCount in this.diffs[name]){
     return this.compare(name, line, lineCount)
+  }
   this.diffs[name] = {
     ...this.diffs[name],
     ...{
@@ -42,6 +38,4 @@ Diff.prototype.log = function() {
   })
 }
 
-export default {
-  Diff
-}
+export default new Diff()

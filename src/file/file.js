@@ -1,10 +1,8 @@
-import readline from 'readline'
+import readline from 'linebyline'
 import consola from 'consola'
-import { Diff } from '../diff/index.js'
+import diff from '../diff/diff'
 
 const log = consola.withTag('File')
-
-const diff = new Diff()
 
 var File = function(name, path) {
   this.name = name
@@ -17,23 +15,31 @@ File.prototype.add = function() {
   throw new Error('文件下面不能再添加文件')
 }
 
-File.prototype.scan = async function() {
+File.prototype.scan = async function(dir) {
   try {
     log.info('开始扫描文件: ', this.name)
+    await this._read(dir)
   } catch (error) {
     log.error(error)
   }
 }
 
-File.prototype.read = function(path) {
-  var r1 = readline(path)
-  rl.on('line', function(line, lineCount, byteCount) {
-    diff.inject(path, line, lineCount)
+File.prototype._read = function(dir) {
+  return new Promise((resolve, reject) => {
+    log.info('开始读取行: ', this.path)
+    const that = this
+    var rl = readline(this.path)
+    rl.on('line', function(line, lineCount, byteCount) {
+      diff.inject(that.path.replace(`${dir}/`, ''), line, lineCount)
+    })
+      .on('end', function() {
+        resolve()
+        // log.info(that.name,' 扫描完成')
+      })
+      .on('error', function(e) {
+        reject(e)
+      })
   })
-    .on('end', function() {
-      diff.log()
-    })
-    .on('error', function(e) {
-      log.error(e)
-    })
 }
+
+export default File
