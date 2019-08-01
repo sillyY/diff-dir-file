@@ -1,9 +1,7 @@
 import * as readDir from 'readdir'
 import consola from 'consola'
 
-import { complieFile } from './util'
 import File from './file'
-import diff from '../diff/diff'
 
 const log = consola.withTag('Folder')
 
