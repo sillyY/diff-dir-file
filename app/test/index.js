@@ -22,14 +22,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var log = _consola2.default.withTag('Run');
 
-var folder1 = new _folder2.default('a', '/Users/sillyy/Desktop/diff-test/a');
-var folder2 = new _folder2.default('b', '/Users/sillyy/Desktop/diff-test/b');
+var folder1 = new _folder2.default('/Users/sillyy/Desktop/diff-test/a');
+var folder2 = new _folder2.default('/Users/sillyy/Desktop/diff-test/b');
 
 function run() {
   var _this = this;
 
   return new Promise(function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee(resolve, reject) {
+      var res;
       return _regenerator2.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -45,22 +46,24 @@ function run() {
               return folder2.init();
 
             case 6:
-              _diff2.default.log();
-              _context.next = 12;
+              res = _diff2.default.getDiff();
+
+              log.info(res);
+              _context.next = 13;
               break;
 
-            case 9:
-              _context.prev = 9;
+            case 10:
+              _context.prev = 10;
               _context.t0 = _context['catch'](0);
 
               log.error(_context.t0);
 
-            case 12:
+            case 13:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, _this, [[0, 9]]);
+      }, _callee, _this, [[0, 10]]);
     }));
 
     return function (_x, _x2) {

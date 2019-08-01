@@ -28,18 +28,10 @@ Diff.prototype.compare = function (name, lineDiff, lineCount) {
         data = _defineProperty({}, lineCount, lineChange);
     this.diffenerce[name] = name in this.diffenerce ? _extends({}, this.diffenerce[name], data) : data;
   }
-  //   delete this.diffs[name]
 };
 
-Diff.prototype.log = function () {
-  var _this = this;
-
-  var keys = Object.keys(this.diffenerce);
-  if (keys.length === 0) return;
-
-  keys.forEach(function (v, i) {
-    console.table(_this.diffenerce[v]);
-  });
+Diff.prototype.getDiff = function () {
+  return this.diffenerce;
 };
 
 exports.default = new Diff();

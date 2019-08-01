@@ -1,8 +1,25 @@
 {
+  "name": "file-compare",
+  "version": "0.1.0",
+  "description": "file compare and show the difference",
+  "main": "src/index.js",
   "scripts": {
     "babel": "babel src  --out-dir app",
     "start": "yarn run babel && node app/test/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sillyY/file-compare.git"
+  },
+  "keywords": [
+    "dir-compare"
+  ],
+  "author": "sillyy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sillyY/file-compare/issues"
+  },
+  "homepage": "https://github.com/sillyY/file-compare#readme",
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0"

@@ -26,16 +26,10 @@ Diff.prototype.compare = function(name, lineDiff, lineCount) {
     this.diffenerce[name] =
       name in this.diffenerce ? { ...this.diffenerce[name], ...data } : data
   }
-  //   delete this.diffs[name]
 }
 
-Diff.prototype.log = function() {
-  let keys = Object.keys(this.diffenerce)
-  if (keys.length === 0) return
-
-  keys.forEach((v, i) => {
-    console.table(this.diffenerce[v])
-  })
+Diff.prototype.getDiff = function() {
+  return this.diffenerce
 }
 
 export default new Diff()

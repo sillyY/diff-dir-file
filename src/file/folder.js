@@ -7,9 +7,10 @@ import diff from '../diff/diff'
 
 const log = consola.withTag('Folder')
 
-var Folder = function(name, path) {
-  this.name = name
+var Folder = function(path) {
   this.path = path
+  const folder = this._parse(path)
+  this.name = folder.name
   this.files = []
 }
 
@@ -21,7 +22,7 @@ Folder.prototype.init = async function() {
 
   for (; i < len; i++) {
     const { name, path } = this._parse(directory[i])
-     this._add(new File(name, path))
+    this._add(new File(name, path))
   }
   await this._scan()
 }
@@ -46,7 +47,7 @@ Folder.prototype._parse = function(path) {
   const data = path.split('/')
   return {
     path,
-    name: data[data.length - 1]
+    name: this.name
   }
 }
 

@@ -34,9 +34,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var log = _consola2.default.withTag('Folder');
 
-var Folder = function Folder(name, path) {
-  this.name = name;
+var Folder = function Folder(path) {
   this.path = path;
+  var folder = this._parse(path);
+  this.name = folder.name;
   this.files = [];
 };
 
@@ -116,7 +117,7 @@ Folder.prototype._parse = function (path) {
   var data = path.split('/');
   return {
     path: path,
-    name: data[data.length - 1]
+    name: this.name
   };
 };
 
