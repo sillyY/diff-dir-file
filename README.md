@@ -26,8 +26,7 @@ npm install diff-dir-file
 
 ```sh
 const diff = require('diff-dir-file')
-let difference = diff(path1, path2)
-difference.then(res => {
+diff(path1, path2).then(res => {
   // do something
   // ....
 })
