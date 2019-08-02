@@ -1,11 +1,11 @@
 {
-  "name": "dir-compare",
+  "name": "file-diff",
   "version": "0.1.0",
-  "description": "file compare and show the difference",
-  "main": "src/index.js",
+  "description": "directory compare and show the difference of files",
+  "main": "lib/index.js",
   "scripts": {
     "babel": "babel src  --out-dir app",
-    "start": "yarn run babel && node app/test/index.js",
+    "start": "yarn run babel && node app/index.js",
     "build": "rollup -c rollup.config.js"
   },
   "repository": {
@@ -22,12 +22,18 @@
   },
   "homepage": "https://github.com/sillyY/file-compare#readme",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "babel-runtime": "^6.26.0",
     "consola": "^2.9.0",
     "linebyline": "^1.3.0",
     "readdir": "^0.1.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5"
   }
 }

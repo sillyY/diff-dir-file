@@ -4,8 +4,8 @@ import diff from './diff/diff'
 
 const log = consola.withTag('Compare')
 
-function compare(path1, path) {
-  return new Promsie(async (resolve, reject) => {
+function compare(path1, path2) {
+  return new Promise(async (resolve, reject) => {
     try {
       const folder1 = new Folder(path1)
       const folder2 = new Folder(path2)
@@ -21,10 +21,4 @@ function compare(path1, path) {
   })
 }
 
-// module.exports = compare
-
-var a = compare(
-  '/Users/sillyy/Desktop/diff-test/a',
-  '/Users/sillyy/Desktop/diff-test/b'
-)
-a.then(res => console.log(res))
+module.exports = compare

@@ -1,4 +1,4 @@
-import * as readDir from 'readdir'
+import readDir from 'readdir'
 import consola from 'consola'
 
 import File from './file'
@@ -13,7 +13,9 @@ var Folder = function(path) {
 }
 
 Folder.prototype.init = async function() {
+  log.info('开始读取内容文件')
   const directory = this._readDir()
+  log.info('结束读取内容文件')
 
   let i = 0,
     len = directory.length

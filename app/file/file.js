@@ -1,30 +1,23 @@
-'use strict';
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _regenerator = require('babel-runtime/regenerator');
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _linebyline = require('linebyline');
+var _linebyline = _interopRequireDefault(require("linebyline"));
 
-var _linebyline2 = _interopRequireDefault(_linebyline);
+var _consola = _interopRequireDefault(require("consola"));
 
-var _consola = require('consola');
+var _diff = _interopRequireDefault(require("../diff/diff"));
 
-var _consola2 = _interopRequireDefault(_consola);
-
-var _diff = require('../diff/diff');
-
-var _diff2 = _interopRequireDefault(_diff);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-var log = _consola2.default.withTag('File');
+var log = _consola["default"].withTag('File');
 
 var File = function File(name, path) {
   this.name = name;
@@ -37,14 +30,17 @@ File.prototype.add = function () {
   throw new Error('文件下面不能再添加文件');
 };
 
-File.prototype.scan = function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee(dir) {
-    return _regenerator2.default.wrap(function _callee$(_context) {
+File.prototype.scan =
+/*#__PURE__*/
+function () {
+  var _ref = (0, _asyncToGenerator2["default"])(
+  /*#__PURE__*/
+  _regenerator["default"].mark(function _callee(dir) {
+    return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-
             log.info('开始扫描文件: ', this.name);
             _context.next = 4;
             return this._read(dir);
@@ -55,12 +51,11 @@ File.prototype.scan = function () {
 
           case 6:
             _context.prev = 6;
-            _context.t0 = _context['catch'](0);
-
+            _context.t0 = _context["catch"](0);
             log.error(_context.t0);
 
           case 9:
-          case 'end':
+          case "end":
             return _context.stop();
         }
       }
@@ -78,16 +73,16 @@ File.prototype._read = function (dir) {
   return new Promise(function (resolve, reject) {
     log.info('开始读取行: ', _this.path);
     var that = _this;
-    var rl = (0, _linebyline2.default)(_this.path);
+    var rl = (0, _linebyline["default"])(_this.path);
     rl.on('line', function (line, lineCount, byteCount) {
-      _diff2.default.inject(that.path.replace(dir + '/', ''), line, lineCount);
+      _diff["default"].inject(that.path.replace("".concat(dir, "/"), ''), line, lineCount);
     }).on('end', function () {
-      resolve();
-      // log.info(that.name,' 扫描完成')
+      resolve(); // log.info(that.name,' 扫描完成')
     }).on('error', function (e) {
       reject(e);
     });
   });
 };
 
-exports.default = File;
+var _default = File;
+exports["default"] = _default;

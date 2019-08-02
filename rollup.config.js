@@ -10,6 +10,9 @@ export default [
       format: "cjs"
     },
     external: ['path'],
-    plugins: [babel(), common(), resolve()]
+    plugins: [babel({
+      exclude: 'node_modules/**',
+      runtimeHelpers: true
+    }), common(), resolve()]
   }
 ];

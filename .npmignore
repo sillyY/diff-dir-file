@@ -1,7 +1,9 @@
 node_modules
 src
+app
 rollup.config.js
 yarn.lock
 ./deploy.sh
 deploy.sh
 .babelrc
+.gitignore
