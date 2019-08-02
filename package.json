@@ -1,5 +1,5 @@
 {
-  "name": "diff-dir",
+  "name": "diff-dir-file",
   "version": "0.1.0",
   "description": "directory compare and show the difference of files",
   "main": "lib/index.js",
