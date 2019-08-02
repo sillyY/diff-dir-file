@@ -26,7 +26,7 @@ npm install diff-dir-file
 
 ```sh
 const diff = require('diff-dir-file')
-let difference = difCompare(path1, path2)
+let difference = diff(path1, path2)
 difference.then(res => {
   // do something
   // ....
@@ -40,7 +40,7 @@ difference.then(res => {
 ```
 // the filename of the diff
 interface IOut {
-  name: IIner 
+  name: IInner 
 }
 // the lineCount of the file
 interface IInner{
